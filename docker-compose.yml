@@ -1,0 +1,23 @@
+services:
+  # We use postgresql as our database, see https://www.postgresql.org/.
+  postgres:
+    container_name: postgres_local
+    build:
+      context: .
+      dockerfile: Dockerfile_postgres
+    environment:
+      POSTGRES_DB: agora
+      POSTGRES_USER: postgres
+      # Allow connection without password.
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      # Save local development data.
+      - postgres:/var/lib/postgresql/data
+      # Executes test migrations on startup, to avoid colliding with development data.
+      - ./init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+volumes:
+  postgres:

@@ -1,0 +1,22 @@
+projectID: agoradesecrivains
+
+api:
+  host: 127.0.0.1
+  port: 8080
+
+buckets:
+  secretKeys: backend-token-keys
+
+iam:
+  serviceAccounts:
+    # A service account was created for this task, but for some reason, the token always contain this email instead.
+    # I keep this value for now, until a solution is found.
+    # For the record, here is the email that should be used:
+    # agora-job-scheduler-account@agoradesecrivains.iam.gserviceaccount.com
+    scheduler:
+      - agora-backend-deployer@agoradesecrivains.iam.gserviceaccount.com
+
+frontend:
+  urls:
+    - https://agoradesecrivains.fr
+    - https://www.agoradesecrivains.fr

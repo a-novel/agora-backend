@@ -1,0 +1,11 @@
+# Generated files.
+.idea/
+.secrets/
+.DS_Store
+
+# Environment files.
+.envrc
+*.old
+
+# Tests.
+report.xml

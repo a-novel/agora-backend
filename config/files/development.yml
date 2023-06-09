@@ -1,0 +1,10 @@
+api:
+  host: localhost
+  port: 2048
+
+frontend:
+  urls:
+    - http://localhost:2080
+
+mailer:
+  sandbox: true

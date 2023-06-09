@@ -1,0 +1,37 @@
+app: agora-backend
+
+frontend:
+  routes:
+    validateEmail: /external/validate-email
+    validateNewEmail: /external/validate-new-email
+    resetPassword: /external/password-reset
+
+mailer:
+  apiKey: ${SENDGRID_API_KEY}
+  sender:
+    email: noreply@agoradesecrivains.com
+    name: Agora des Écrivains
+  templates:
+    emailValidation: "d-a80c26ecbbd64390b14b01164f48b506"
+    emailUpdate: "d-9243c048639b404c8faee145b9e6eb59"
+    passwordReset: "d-0bdf024cdeec44c1950aad35e191ad46"
+
+postgres:
+  dsn: ${POSTGRES_URL}
+
+secrets:
+  prefix: tokens
+  # Secret keys rotation is 1/2 day in production, so 8 backups keeps one alive for 4 days.
+  backups: 8
+  updateInterval: 3h
+
+tokens:
+  # Expire token after 48h.
+  ttl: 48h
+  # Renew a token 24h before it expires. Both tokens will not be available together (despite being issued early, the
+  # new token IAT is set to the current token EXP).
+  renewDelta: 24h
+
+forum:
+  search:
+    cropContent: 256

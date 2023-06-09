@@ -1,0 +1,28 @@
+# Configuration.
+cloudbuild.yml
+docker-compose.yml
+
+# Ignore files.
+.gitignore
+.gcloudignore
+
+# Scripts.
+Makefile
+init.sql
+
+# Documentation.
+README.md
+CONTRIBUTING.md
+
+# Generated files.
+.idea/
+.secrets/
+.DS_Store
+
+# Environment files.
+.envrc
+*.old
+
+# Tests.
+test/
+report.xml

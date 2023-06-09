@@ -1,0 +1,3 @@
+ALTER TABLE profiles
+    ALTER COLUMN slug DROP NOT NULL,
+    DROP CONSTRAINT slug_filled;
